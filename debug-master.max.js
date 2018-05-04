@@ -1646,48 +1646,55 @@ var PerformanceTest_Cartoon2=(function(){
 	function PerformanceTest_Cartoon2(){
 		this.amount=500;
 		this.character1=[
-		"res/cartoon2/yd-6_01.png",
-		"res/cartoon2/yd-6_02.png",
-		"res/cartoon2/yd-6_03.png",
-		"res/cartoon2/yd-6_04.png",
-		"res/cartoon2/yd-6_05.png",
-		"res/cartoon2/yd-6_06.png",
-		"res/cartoon2/yd-6_07.png",
-		"res/cartoon2/yd-6_08.png",];
+		"cartoon2/yd-6_01.png",
+		"cartoon2/yd-6_02.png",
+		"cartoon2/yd-6_03.png",
+		"cartoon2/yd-6_04.png",
+		"cartoon2/yd-6_05.png",
+		"cartoon2/yd-6_06.png",
+		"cartoon2/yd-6_07.png",
+		"cartoon2/yd-6_08.png",];
 		this.character2=[
-		"res/cartoon2/yd-3_01.png",
-		"res/cartoon2/yd-3_02.png",
-		"res/cartoon2/yd-3_03.png",
-		"res/cartoon2/yd-3_04.png",
-		"res/cartoon2/yd-3_05.png",
-		"res/cartoon2/yd-3_06.png",
-		"res/cartoon2/yd-3_07.png",
-		"res/cartoon2/yd-3_08.png",];
+		"cartoon2/yd-3_01.png",
+		"cartoon2/yd-3_02.png",
+		"cartoon2/yd-3_03.png",
+		"cartoon2/yd-3_04.png",
+		"cartoon2/yd-3_05.png",
+		"cartoon2/yd-3_06.png",
+		"cartoon2/yd-3_07.png",
+		"cartoon2/yd-3_08.png",];
 		this.character3=[
-		"res/cartoon2/yd-2_01.png",
-		"res/cartoon2/yd-2_02.png",
-		"res/cartoon2/yd-2_03.png",
-		"res/cartoon2/yd-2_04.png",
-		"res/cartoon2/yd-2_05.png",
-		"res/cartoon2/yd-2_06.png",
-		"res/cartoon2/yd-2_07.png",
-		"res/cartoon2/yd-2_08.png",];
+		"cartoon2/yd-2_01.png",
+		"cartoon2/yd-2_02.png",
+		"cartoon2/yd-2_03.png",
+		"cartoon2/yd-2_04.png",
+		"cartoon2/yd-2_05.png",
+		"cartoon2/yd-2_06.png",
+		"cartoon2/yd-2_07.png",
+		"cartoon2/yd-2_08.png",];
 		this.character4=[
-		"res/cartoon2/wyd-1_01.png",
-		"res/cartoon2/wyd-1_02.png",
-		"res/cartoon2/wyd-1_03.png",
-		"res/cartoon2/wyd-1_04.png",
-		"res/cartoon2/wyd-1_05.png",
-		"res/cartoon2/wyd-1_06.png",
-		"res/cartoon2/wyd-1_07.png",
-		"res/cartoon2/wyd-1_08.png",];
+		"cartoon2/wyd-1_01.png",
+		"cartoon2/wyd-1_02.png",
+		"cartoon2/wyd-1_03.png",
+		"cartoon2/wyd-1_04.png",
+		"cartoon2/wyd-1_05.png",
+		"cartoon2/wyd-1_06.png",
+		"cartoon2/wyd-1_07.png",
+		"cartoon2/wyd-1_08.png",];
 		this.characterSkins=[this.character1,this.character2,this.character3,this.character4];
 		this.characters=[];
 		this.text=null;
 		Laya.init(1280,720,WebGL);
 		Laya.stage.screenMode="horizontal";
+		Stat.show();
 		Stat.enable();
+		Laya.loader.load("res/atlas/cartoon2.atlas",Handler.create(this,this.onLoaded));
 		Laya.stage.loadImage("res/cartoon2/background.jpg",0,0,1280,900);
+	}
+
+	__class(PerformanceTest_Cartoon2,'PerformanceTest_Cartoon2');
+	var __proto=PerformanceTest_Cartoon2.prototype;
+	__proto.onLoaded=function(){
 		this.createCharacters();
 		this.text=new Text();
 		this.text.zOrder=10000;
@@ -1697,8 +1704,6 @@ var PerformanceTest_Cartoon2=(function(){
 		Laya.timer.frameLoop(1,this,this.gameLoop);
 	}
 
-	__class(PerformanceTest_Cartoon2,'PerformanceTest_Cartoon2');
-	var __proto=PerformanceTest_Cartoon2.prototype;
 	__proto.createCharacters=function(){
 		var char;
 		var charSkin;
@@ -17898,6 +17903,7 @@ var CharBook=(function(){
 	*/
 	__proto.filltext=function(ctx,data,x,y,fontStr,color,strokeColor,lineWidth,textAlign,underLine){
 		(underLine===void 0)&& (underLine=0);
+		return;
 		if (data.length <=0)
 			return;
 		var c1=Color.create(color);

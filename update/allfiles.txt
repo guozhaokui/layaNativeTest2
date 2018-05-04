@@ -1,6 +1,7 @@
 /debug-master.max.js
 /index.html
-/oes-vertex-array-object-polyfill.js
+/res/atlas/cartoon2.atlas
+/res/atlas/cartoon2.png
 /res/cartoon2/background.jpg
 /res/cartoon2/blood_1_r.png
 /res/cartoon2/wyd-1_01.png
